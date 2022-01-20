@@ -16,6 +16,10 @@ const EventSchema = mongoose.Schema({
     // TODO : mess with date object and calls
     date: {
         type: Date
+    },
+    location: {
+        type: String,
+        required: true
     }
 })
 
