@@ -11,15 +11,21 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
-const eventsRoutes = require('./routes/get');
-const addEventRoute = require('./routes/post');
-const deleteRoute = require('./routes/delete');
-const updateRoute = require('./routes/update');
+const eventsRoutes = require('./eventsRoutes/get');
+const addEventRoute = require('./eventsRoutes/post');
+const deleteRoute = require('./eventsRoutes/delete');
+const updateRoute = require('./eventsRoutes/update');
+
+const postUser = require('./usersRoutes/post');
+const getUser = require('./usersRoutes/get');
 
 app.use('/events', eventsRoutes);
 app.use('/events', addEventRoute);
 app.use('/events', deleteRoute);
 app.use('/events', updateRoute);
+
+app.use('/users', postUser);
+app.use('/users', getUser);
 
 app.get('/', (req, res) => {
     res.send('Server is running on Home')
